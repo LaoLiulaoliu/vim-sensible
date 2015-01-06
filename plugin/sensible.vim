@@ -33,7 +33,7 @@ if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 endif
 
-set laststatus=2
+set laststatus=1
 set ruler
 set showcmd
 set wildmenu
@@ -83,6 +83,8 @@ set sessionoptions-=options
 " Allow color schemes to do bright colors without forcing bold.
 if &t_Co == 8 && $TERM !~# '^linux'
   set t_Co=16
+  let &t_ti = "\<Esc>[?47h"
+  let &t_te = "\<Esc>[?47l"
 endif
 
 " Load matchit.vim, but only if the user hasn't installed a newer version.
